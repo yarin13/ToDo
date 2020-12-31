@@ -1,0 +1,46 @@
+
+
+<h2 mat-dialog-title>Create a new task!</h2>
+<mat-dialog-content>
+<label>Name:</label>
+<input [(ngModel)]="newTask.name"/>
+
+<br>
+<br>
+
+<label>Descripion:</label>
+<input [(ngModel)]="newTask.description"/>
+  
+<br>
+<br>
+
+<label>Status:</label>
+<select
+    [(ngModel)]="newTask.status" >
+    <option *ngFor="let s of statusOptions">{{s}}</option>
+</select>
+
+
+<br>
+<br>
+
+<label>Start Date:</label>
+<input [(ngModel)]="newTask.startDate" type="date"/>
+
+<br>
+<br>
+
+<label>End Date:</label>
+<input [(ngModel)]="newTask.endDate" type="date"/>
+
+<br>
+<br>
+</mat-dialog-content>
+
+
+
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close mat-dialog-close="apply" (click)="apply()">Apply</button>
+    <button mat-button mat-dialog-close mat-dialog-close="canael">Cancel</button>
+</mat-dialog-actions>
+

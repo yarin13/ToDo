@@ -1,0 +1,79 @@
+<!-- <table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Actions</th>
+    </tr>
+    <tr *ngFor="let r of tasks">
+        <td>{{r.name}}</td>
+        <td>{{r.description}}</td>
+        <td>{{r.status}}</td>
+        <td>{{r.startDate}}</td>
+        <td>{{r.endDate}}</td>
+        <td><button (click)="editTask(r)">Edit</button><button (click)="deleteButton(r.id)">Delete</button></td>
+
+    </tr>
+
+</table>
+
+
+<button (click)="createTask()">Create Task</button> -->
+
+
+<hr>
+
+
+  <mat-form-field>
+      <input (keyup)="applyFilter($event.target.value)" matInput placeholder="search"/>
+  </mat-form-field> 
+  
+  <div class="mat-elevation-z8">
+    <table  class="scroll" mat-table [dataSource]="_data" matSort>
+  
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+      </ng-container>
+
+  
+
+      <ng-container matColumnDef="description" id="desc">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+        <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+      </ng-container>
+  
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+        <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="startDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Start Date </th>
+        <td mat-cell *matCellDef="let row" > {{row.startDate}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="endDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> End Date </th>
+        <td mat-cell *matCellDef="let row" > {{row.endDate}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+        <td mat-cell *matCellDef="let row" ><button (click)="editTask(row)">Edit</button><button (click)="deleteButton(row.id)">Delete</button></td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+
+    </table>
+    <button (click)="createTask()">Create Task</button>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+  

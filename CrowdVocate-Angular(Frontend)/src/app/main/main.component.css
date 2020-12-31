@@ -1,0 +1,23 @@
+
+.scrollit {
+  overflow:scroll;
+  height:300px;
+}
+
+.mat-table{
+  border: 1px solid #ddd;
+  width: 100%;
+}
+#desc{
+  width: 100px;
+}
+
+
+/* .scroll{
+  overflow:scroll;
+  height:500px;
+}
+
+td{
+  height:100px;
+} */
